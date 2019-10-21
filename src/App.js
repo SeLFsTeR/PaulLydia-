@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+<<<<<<< HEAD
 import header from "./components/header.js";
 
 function App() {
@@ -23,5 +24,16 @@ function App() {
     </div>
   );
 }
+=======
+import Title from "./component/title";
+>>>>>>> c83a9c3b16b3b5c8db5b2beb6e48955b61bc39a9
 
-export default App;
+export default class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <Title content="MEME title" />
+      </div>
+    );
+  }
+}
