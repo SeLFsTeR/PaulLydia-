@@ -4,7 +4,7 @@ export default class Title extends Component {
     return (
       <div className="App">
         <h1>Our MEME Page</h1>
-        <h2>hello</h2>
+        <h2>Laughter is de best Medicine</h2>
       </div>
     );
   }
