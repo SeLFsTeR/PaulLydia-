@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import './components/header'
-
+import header from './components/header'
+ 
 function App() {
   return (
     <div className="App">
