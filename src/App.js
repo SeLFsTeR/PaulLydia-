@@ -4,28 +4,38 @@ import Header from "./component/Header";
 import Memes from "./component/Memes";
 
 export default class App extends React.Component {
-  state = {
-    memes: [
-      {
-        id: 1,
-        name: ""
-      }
-    ]
-  }; //array of objects for multiple components
-  // to acces state this.state.whatever
-  // to add props whatever={this.state.whatever}
-  // fetch('https://api.imgflip.com/get_memes').then((res)=>res.json()).then((res)=>res.data.meme)
+  constructor() {
+    super();
+    this.state = {
+      memes: []
+    };
+  }
+
+  componentWillMount() {
+    fetch("https://api.imgflip.com/get_memes")
+      .then(res => {
+        return res.json();
+      })
+      .then(responsedata => {
+        console.log("hello", responsedata.data.memes);
+        this.setState({
+          memes: responsedata.data.memes
+        });
+      });
+  }
+
   render() {
+    const memeList = this.state.memes.map(meme => {
+      return <Memes id={meme.id} name={meme.name} url={meme.url} />;
+    });
     // life cicle method this returns jsx
     return (
       <div className="App">
         <div>
-          <Header name="Meme Generator" />
+          <Header className="Meme Generator" />
         </div>
 
-        <div class="memeImg">
-          <Memes src="https://i.imgflip.com/1ur9b0.jpg" alt="" />
-        </div>
+        <div className="memeImg">{memeList}</div>
       </div>
     );
   }
