@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Title from "./component/title";
+import footer from "./component/footer";
 
 export default class App extends React.Component {
   render() {
