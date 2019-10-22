@@ -8,6 +8,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <Title content="MEME title" />
+        <Footer />
       </div>
     );
   }
