@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import Title from "./component/title";
-import footer from "./component/footer";
+import Title from "./component/Title";
+import Footer from "./component/Footer";
 
 export default class App extends React.Component {
   render() {
