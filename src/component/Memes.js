@@ -8,9 +8,15 @@ export class Memes extends Component {
   render() {
     return (
       <div class="memeImg">
-        <img src={this.props.url} />
+        <img
+          style={{
+            width: 800,
+            borderRadius: 6
+          }}
+          src={this.props.url}
+          alt={""}
+        />
         <p>{this.props.name}</p>
-        <p>{this.props.id}</p>
       </div>
     );
   }
