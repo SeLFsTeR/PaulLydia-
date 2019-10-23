@@ -6,7 +6,7 @@ export default class Footer extends Component {
       <div className="App">
         <footer>
           {" "}
-          This is the combined work of Lydia and Paul @ Codaisseur{" "}
+          *** This is the combined work of Lydia and Paul @ Codaisseur ***{" "}
         </footer>
       </div>
     );
