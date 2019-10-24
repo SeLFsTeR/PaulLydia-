@@ -7,15 +7,20 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      memes: [],
-      bottomText: "",
-      topText: ""
+      memes: []
     };
   }
 
-  // this.Handlechange=this.HandleChange.bind(this)??
+  // clickImage = selectMeme => {
+  //   console.log("does it click?");
+  //   const selectedMeme= this.state.meme.map(meme=>{
+  //     if(meme === null){
 
-  componentWillMount() {
+  //     }
+  //   })
+  // };
+
+  componentDidMount() {
     fetch("https://api.imgflip.com/get_memes")
       .then(res => {
         return res.json();
@@ -30,32 +35,20 @@ export default class App extends React.Component {
 
   render() {
     const memeList = this.state.memes.map(meme => {
-      return <Memes name={meme.name} url={meme.url} />;
+      return (
+        <Memes id={meme.id} name={meme.name} url={meme.url} />
+        // clickImage={this.clickImage}
+      );
     });
     // life cicle method this returns jsx
     return (
       <div className="App">
         <div>
-          <Header className="Meme Generator" name="MEME GENERATOR" />
+          <Header className="MemeGenerator" />
         </div>
-        <div></div>
 
         <div className="memeImg">{memeList}</div>
       </div>
     );
   }
 }
-
-// <img onClick={FUNCTION showimage}
-// Create a Meme Component that styles the look of 1 meme.
-// When you click on an image, hide all the memes.
-// if(clickedMeme = null, once you click a meme setState clickedMeme = meme.url
-// if clickedMeme !== null, then show component
-// hide other memes
-
-//<img onClick={() => {
-//   this.setState({!memes  && this.state.memes.map(meme => {
-// return <Memes id={meme.id} name={meme.name} url={meme.url} />;})
-//{memes}
-
-// api has capotion for memes
