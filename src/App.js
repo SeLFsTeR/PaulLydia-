@@ -49,6 +49,7 @@ export default class App extends React.Component {
       <div className="App">
         <Title content="MEME title" />
         <Likebutton id="example" />
+        <Footer />
         <div id="example"></div>
         <div>
           <Header />
