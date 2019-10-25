@@ -3,22 +3,16 @@ import "./App.css";
 import Header from "./component/Header";
 import Memes from "./component/Memes";
 
-export default class App extends React.Component {
+import { Route } from "react-router-dom";
+import SingleImage from "./SingleImage";
+
+class MemeList extends React.Component {
   constructor() {
     super();
     this.state = {
       memes: []
     };
   }
-
-  // clickImage = selectMeme => {
-  //   console.log("does it click?");
-  //   const selectedMeme= this.state.meme.map(meme=>{
-  //     if(meme === null){
-
-  //     }
-  //   })
-  // };
 
   componentDidMount() {
     fetch("https://api.imgflip.com/get_memes")
@@ -32,22 +26,31 @@ export default class App extends React.Component {
         });
       });
   }
-
   render() {
-    const memeList = this.state.memes.map(meme => {
-      return (
-        <Memes id={meme.id} name={meme.name} url={meme.url} />
-        // clickImage={this.clickImage}
-      );
-    });
-    // life cicle method this returns jsx
+    return (
+      <div>
+        {this.state.memes.map(meme => {
+          return (
+            <Memes key={meme.id} id={meme.id} name={meme.name} url={meme.url} />
+          );
+        })}
+        ;
+      </div>
+    );
+  }
+}
+
+export default class App extends React.Component {
+  render() {
     return (
       <div className="App">
         <div>
-          <Header className="MemeGenerator" />
+          <Header />
         </div>
-
-        <div className="memeImg">{memeList}</div>
+        <div>
+          <Route exact path="/memes/:memeId" component={SingleImage} />
+          <Route exact path="/memes" component={MemeList} />
+        </div>
       </div>
     );
   }
