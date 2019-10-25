@@ -65,19 +65,27 @@ export class Memes extends Component {
         <Like />
         <div>
           <form onSubmit={this.handleSubmit}>
-            <label>Top Text:</label>
+            <label style={{ color: "white" }}>Top Text:</label>
             <input
               name="topText"
               value={this.state.topText}
               onChange={this.handleChange}
             />
-            <label>Bottom Text:</label>
+            <label style={{ color: "white" }}>Bottom Text:</label>
             <input
               name="bottomText"
               value={this.state.bottomText}
               onChange={this.handleChange}
             />
-            <input type="submit" />
+            <input
+              type="submit"
+              style={{
+                borderRadius: 2,
+                color: "black",
+                padding: 10,
+                borderRadius: 20
+              }}
+            />
           </form>
         </div>
       </div>

@@ -58,6 +58,7 @@ export default class App extends React.Component {
           <Route exact path="/memes/:memeId" component={SingleImage} />
           <Route exact path="/memes" component={MemeList} />
         </div>
+        <div></div>
       </div>
     );
   }
